@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here dependency injection-->
+    <!-- Prototype bean type<bean id ="patient" class ="com.hms.springHMS.Patient" scope="prototype">
+	</bean> -->
+	<!-- singleton bean type -->
+	<bean id ="patient" class ="com.hms.springHMS.Patient">
+		<!-- setter injection -->
+		<property name="age" value= "21"></property>
+		<property name="record" ref="recordbeanid"></property>
+	</bean>
+	<bean id ="patient1" class ="com.hms.springHMS.Patient">
+		<!-- Constructor and Setter injection for age and record respectively-->
+		<constructor-arg value="21"></constructor-arg>
+		<property name="record" ref="recordbeanid"></property>
+	</bean>
+	<bean id ="patient2" class ="com.hms.springHMS.Patient">
+		<!-- Constructor injection -->
+			
+			<!-- <constructor-arg type="com.hms.springHMS.Record" ref="recordbeanid"></constructor-arg> -->
+			<!-- <constructor-arg type="int" value= "21"></constructor-arg> -->
+			
+			
+			<!-- <constructor-arg index="1" ref="recordbeanid"></constructor-arg> -->
+			<!-- <constructor-arg index="0" value= "21"></constructor-arg> -->
+			
+			
+			<!-- If proper order needs to be followed and @constructionproperties not mentioned on the constructor -->
+			<!-- <constructor-arg name="record" ref="recordbeanid"></constructor-arg> -->
+			<!-- <constructor-arg name="age" value= "21"></constructor-arg> -->
+			<!-- <constructor-arg name="sal" value="2500"></constructor-arg> -->
+			
+			<constructor-arg name="age" value= "21"></constructor-arg>
+			<constructor-arg name="record" ref="recordbeanid"></constructor-arg>
+			<constructor-arg name="sal" value="2500"></constructor-arg>
+	</bean>
+	
+	<bean id ="recordbeanid" class ="com.hms.springHMS.Record">
+	</bean>
+	
+	<!-- cant create baen of interface<bean id ="treatmentbeanId" class ="com.hms.springHMS.Treatment">
+	</bean> -->
+	
+	<bean id="inPatient" class="com.hms.springHMS.InPatient" autowire="byName">
+		<property name="age" value="21"></property>
+		<!-- <property name="treatment" ref="oralMedicine"></property> -->
+	</bean>
+	
+	<bean id="inPatient1" class="com.hms.springHMS.InPatient" autowire="byType">
+		<property name="age" value="21"></property>
+		<!-- InnerBean-->
+		<property name="treatment" >
+		
+			<bean id="treatment1" class="com.hms.springHMS.OralMedicine" primary="true"></bean>
+		
+		</property> 
+	</bean>
+	<!-- bean id name and variable name should be same for autowire -->
+	<bean id="treatment" class="com.hms.springHMS.OralMedicine"></bean>
+	<bean id="oralMedicine" class="com.hms.springHMS.OralMedicine"></bean>
+	<bean id="physicalMedicine" class="com.hms.springHMS.PhysicalMedicine" lazy-init="true"></bean>
+
+</beans>
