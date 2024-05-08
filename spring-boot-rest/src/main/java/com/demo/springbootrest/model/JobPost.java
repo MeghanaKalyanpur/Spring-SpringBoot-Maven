@@ -1,4 +1,4 @@
-package com.telusko.springbootrest.model;
+package com.demo.springbootrest.model;
 
 import java.util.List;
 

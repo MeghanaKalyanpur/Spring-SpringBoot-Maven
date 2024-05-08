@@ -1,4 +1,4 @@
-package com.telusko.springbootrest.repo;
+package com.demo.springbootrest.repo;
 
 
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.telusko.springbootrest.model.JobPost;
+import com.demo.springbootrest.model.JobPost;
 
 @Repository
 public class JobRepo {

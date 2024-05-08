@@ -1,12 +1,12 @@
-package com.telusko.springbootrest.service;
+package com.demo.springbootrest.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.telusko.springbootrest.model.JobPost;
-import com.telusko.springbootrest.repo.JobRepo;
+import com.demo.springbootrest.model.JobPost;
+import com.demo.springbootrest.repo.JobRepo;
 
 @Service
 public class JobService {
