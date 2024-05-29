@@ -40,6 +40,14 @@ public class SecurityConfig {
 		.httpBasic(Customizer.withDefaults())
 		.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 		
+//		http.csrf(customizer -> customizer.disable())
+//		.authorizeHttpRequests(authorize -> authorize.
+//				requestMatchers("register")                //allow anyone to register
+//				.permitAll()
+//				.anyRequest().authenticated())
+//		.httpBasic(Customizer.withDefaults())
+//		.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+//		
 		return http.build();		
 	}
 }

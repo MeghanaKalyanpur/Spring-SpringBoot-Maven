@@ -3,6 +3,8 @@ package com.demo.springbootrest.model;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -13,6 +15,7 @@ import lombok.Data;
 public class User {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // Hibernate automatically generates an id for you
 	private int id;
 	private String userName;
 	private String password;
